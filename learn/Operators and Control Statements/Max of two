@@ -1,4 +1,5 @@
 Write a program to input two numbers(A & B) from user and print the maximum element among A & B in each line.
+============================
     A = int(input())
     B = int(input())
     if (int(A) > int(B)):
