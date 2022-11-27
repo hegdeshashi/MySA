@@ -9,7 +9,7 @@ x = a < b + c
 
 print(x) # this should be True
 Note: You need to write the code from scratch in the code editor.
-===========
+==========================================
 a = 1# __ change this
 b = 1 # __ change this
 c = 1# __ change this
