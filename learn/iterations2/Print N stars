@@ -1,0 +1,6 @@
+Given an integer N, print N stars in a single line.
+=================
+N = int(input())
+
+for i in range(N):
+    print("*",end="")
