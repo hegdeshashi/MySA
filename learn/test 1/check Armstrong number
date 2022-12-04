@@ -9,7 +9,12 @@ N = int(input())
 
 copy_N = N
 sum = 0
-
+  
+count = 0
+while ( N > 0):
+     count +=1
+     N = N //10
+N = copy_N
 while ( N >0):
     digit = N % 10
     sum += (digit * digit * digit)
