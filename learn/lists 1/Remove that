@@ -1,0 +1,21 @@
+Problem Description
+
+Write a program to input N numbers array from user and an integer X and print the array by deleting element at specified position X.
+==================
+
+
+
+===================
+user input
+
+N = int(input())
+my_list=[]
+for i in range(N):
+    my_list.append(input())
+print(my_list)
+X = int(input())
+
+for i in range(N-1):
+    if (i == X):
+        my_list.pop(i)
+print(my_list)
