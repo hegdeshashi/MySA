@@ -3,6 +3,15 @@ Problem Description
 Write a program to input N numbers array from user and an integer X and print the array by deleting element at specified position X.
 ==================
 
+    N = int(input())
+    a = list(map(int,input().split()))
+    X = int(input())
+    for i in range(X,N):
+        a[i-1]=a[i]
+    N -= 1;
+    for i in range(0,N):
+        print(a[i],end=' ')
+
 
 
 ===================
