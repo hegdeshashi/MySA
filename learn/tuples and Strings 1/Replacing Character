@@ -1,0 +1,43 @@
+Problem Description:
+
+Write a program to return a string from a given string s where all occurrences of 
+the first char of the string except the first occurrence have been changed to '$'.
+Input Format:
+
+The number of test cases. For each testcase there will be a single line of input as explained following.
+The single line consists of a string.
+Output Format:
+
+Resultant string
+Sample Input:
+
+1
+"restart"
+Sample Output:
+
+"resta$t"
+Sample Explanation:
+
+‘r’ is the first character of the string. We have to replace all the occurrences of r to ‘$’
+ except the one at index 0.
+ ==============================
+ 
+ def change_char(s):
+    '''Input: s takes the string as input
+       Output:return the resultant string'''
+       
+    res = ''
+    # YOUR CODE GOES HERE
+    ch = s[0]
+    res += ch
+
+    for i in range(1, len(s)):
+        if s[i] == ch:
+            res += '$'
+        else:
+            res += s[i]
+        
+   
+    return res
+    
+
