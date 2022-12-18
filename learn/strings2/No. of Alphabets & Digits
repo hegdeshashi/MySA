@@ -1,0 +1,40 @@
+Problem Description:
+
+Write a program that takes a sentence as a parameter and returns the number of alphabets and digits separately.
+
+Input Format:
+
+First line will have the number of test cases. For each testcase there will be one line of input consisting
+of string/sentence in string format.
+Output Format:
+
+Count of alphabets and digits in the given string.
+Sample Input:
+
+1
+John.Smith1990@gmail.com
+Sample Output:
+
+Number of alphabets:  17
+Number of Digits:  4
+Sample explanation:
+
+The four digits are 1,9,9, and 0. The 17 alphabets are J,o,h,n,S,m,i,t,h,g,m,a,i,l,c,o and m.
+=====================
+
+def alphandig_count(s):
+    '''Input: s takes the string as input
+       Output: return count of alphabets and digits'''
+       
+    count_digit = 0
+    count_alpha = 0
+
+    # YOUR CODE GOES HERE
+    for c in s:
+        if (c.isalpha()):
+            count_alpha += 1
+        elif( c.isdigit() ):
+            count_digit += 1
+
+
+    return count_alpha, count_digit
