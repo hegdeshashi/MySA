@@ -52,12 +52,14 @@ def modify(s):
        Output:return the resultant string with described modifications'''
     # YOUR CODE GOES HERE
     
-    if(len(s)>3) and(s[-3:] != 'ing'):
+    if(len(s)>=3) and(s[-3:] != 'ing'):
         s = s +'ing'
     elif(len(s)>3) and(s[-3:] =='ing'):
         s = s + 'ly'
-    elif(len(s)<=3):
+    elif(len(s)<3):
         pass
     return s    
+
+
 
 
