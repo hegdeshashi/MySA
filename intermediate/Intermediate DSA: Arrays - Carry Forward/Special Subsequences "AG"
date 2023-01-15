@@ -47,12 +47,11 @@ Explanation 1:
 Explanation 2:
 
  There is no subsequence "AG" in the given string.
- =======================
- class Solution:
+ =======================class Solution:
     # @param A : string
     # @return an integer
     def solve(self, A):
-
+        modulo = int(math.pow(10, 9)) + 7
         ans = 0 
         count = 0
         n = len(A)
@@ -61,4 +60,4 @@ Explanation 2:
                 count += 1
             elif  (A[i] == 'A'):
                 ans += count
-        return ans            
+        return ans % modulo           
