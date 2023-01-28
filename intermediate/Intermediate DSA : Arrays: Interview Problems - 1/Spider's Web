@@ -1,0 +1,17 @@
+A spider is trying to build a web for itself. The web built by it doubles every day.
+
+If the spider entirely built the web in 15 days, how many days did it take for the spider to build 25% of the web?
+
+Answer is an integer. Just put the number without any decimal places if it's an integer. If the answer is Infinity, output Infinity.
+
+Feel free to get in touch with us if you have any questions
+================
+
+If the spider has taken 15 days to complete the work that means on day 15th 100% of the work was completed and on 14th day half of 100 i.e 50% of the work was completed and on 13th day half of 50 i.e rest 25% of the work was completed.
+
+
+13th day = 25% work done
+14th day = 50 % work done 
+15th day = 100% work done
+
+Hence, answer is 13th day…
