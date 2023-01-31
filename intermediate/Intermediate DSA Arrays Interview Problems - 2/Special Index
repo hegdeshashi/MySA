@@ -1,0 +1,82 @@
+Problem Description
+Given an array, arr[] of size N, the task is to find the count of array indices such that removing an element from these indices makes the sum of even-indexed and odd-indexed array elements equal.
+
+
+
+Problem Constraints
+1 <= n <= 105
+-105 <= A[i] <= 105
+
+
+Input Format
+First argument contains an array A of integers of size N
+
+
+Output Format
+Return the count of array indices such that removing an element from these indices makes the sum of even-indexed and odd-indexed array elements equal.
+
+
+
+Example Input
+Input 1:
+A=[2, 1, 6, 4]
+Input 2:
+
+A=[1, 1, 1]
+
+
+Example Output
+Output 1:
+1
+Output 2:
+
+3
+==================
+
+
+class Solution:
+    # @param A : list of integers
+    # @return an integer
+    def solve(self, A):
+        c=0
+        N=len(A)
+        pfEven = []
+        pfEven.append(A[0])
+        for i in range(1, N):
+            if i % 2 == 0:
+                pfEven.append(pfEven[i-1]+A[i])
+            else:
+                pfEven.append(pfEven[i-1])
+        pfodd = []
+        pfodd.append(0)
+        for i in range(1, N):
+            if i % 2 != 0:
+                pfodd.append(pfodd[i-1]+A[i])
+            else:
+                pfodd.append(pfodd[i-1])
+        for i in range(0,N):
+            if i==0:
+                es=pfodd[N-1]-pfodd[i]
+                eo=pfEven[N-1]-pfEven[i]
+            else:
+                es=pfEven[i-1]+pfodd[N-1]-pfodd[i]
+                eo=pfodd[i-1]+pfEven[N-1]-pfEven[i]
+            if (es==eo):
+                c=c+1
+        return c
+
+
+
+
+Example Explanation
+Explanation 1:
+Removing arr[1] from the array modifies arr[] to { 2, 6, 4 } such that, arr[0] + arr[2] = arr[1]. 
+Therefore, the required output is 1. 
+Explanation 2:
+
+Removing arr[0] from the given array modifies arr[] to { 1, 1 } such that arr[0] = arr[1] 
+Removing arr[1] from the given array modifies arr[] to { 1, 1 } such that arr[0] = arr[1] 
+Removing arr[2] from the given array modifies arr[] to { 1, 1 } such that arr[0] = arr[1] 
+Therefore, the required output is 3
+=============
+
