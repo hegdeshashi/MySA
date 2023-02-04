@@ -1,0 +1,65 @@
+Problem Description
+Given an array B of length A with elements 1 or 0. Find the number of subarrays such that the bitwise OR of all the elements present in the subarray is 1.
+
+
+Problem Constraints
+1 <= A <= 105
+
+
+Input Format
+The first argument is a single integer A.
+The second argument is an integer array B.
+
+
+Output Format
+Return the number of subarrays with bitwise array 1.
+
+
+Example Input
+Input 1:
+ A = 3
+B = [1, 0, 1]
+Input 2:
+ A = 2
+B = [1, 0]
+
+
+Example Output
+Output 1:
+5
+Output2:
+2
+
+
+Example Explanation
+Explanation 1:
+The subarrays are :- [1], [0], [1], [1, 0], [0, 1], [1, 0, 1]
+Except the subarray [0] all the other subarrays has a Bitwise OR = 1
+Explanation 2:
+The subarrays are :- [1], [0], [1, 0]
+Except the subarray [0] all the other subarrays has a Bitwise OR = 1
+=========
+
+class Solution:
+    # @param A : integer
+    # @param B : list of integers
+     # @return an long
+    def solve(self, A, B):
+        N=A  
+        total=(N*(N+1))//2              # total number of subarrays
+        ans=0
+        count=0
+        for i in range(N):
+            if B[i]==0:
+                count+=1              # counting total number of consecutive zeroes in a subarray
+               
+            else:                         # here we hit an elemnt =1
+                ans+=count*(count+1)//2     # counting and adding total no subarrays made from consecutive zeros
+                count=0                      
+
+        if count>=1:
+            ans+=count*(count+1)//2          # if zerro or zeroes are last elemnt then else code inside for loop will not work
+                                             # hence again counting and adding total no subarrays made from consecutive zeros
+
+       
+        return total-ans    # total - total subarray of consecutive zeroes= total subarray with "1" as elemnt
