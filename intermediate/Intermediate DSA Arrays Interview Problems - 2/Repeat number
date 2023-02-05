@@ -1,0 +1,76 @@
+ N/3 Repeat Number
+ ======
+ Problem Description
+You're given a read-only array of N integers. Find out if any integer occurs more than N/3 times in the array in linear time and constant additional space.
+If so, return the integer. If not, return -1.
+
+If there are multiple solutions, return any one.
+
+
+
+Problem Constraints
+1 <= N <= 7*105
+1 <= A[i] <= 109
+
+
+Input Format
+The only argument is an integer array A.
+
+
+Output Format
+Return an integer.
+
+
+Example Input
+[1 2 3 1 1]
+
+
+Example Output
+1
+
+
+Example Explanation
+1 occurs 3 times which is more than 5/3 times.
+==========
+
+class Solution:
+    # @param A : tuple of integers
+    # @return an integer
+    def repeatedNumber(self, A):
+        N = len(A)
+        if N == 1:
+            return A[0]
+        N3 = len(A) // 3
+        me1 = -1
+        me2 = -1
+        c1 = 0
+        c2 = 0
+        for i in A:
+            if i == me1:
+                c1 += 1
+            elif i == me2:
+                c2 += 1
+            else:
+                if c1 == 0:
+                    me1 = i
+                    c1 = 1
+                elif c2 == 0:
+                    me2 = i
+                    c2 = 1
+                else:
+                    c1 -= 1
+                    c2 -= 1
+        fe1 = 0
+        fe2 = 0
+        for j in A:
+            if j == me1:
+                fe1 += 1
+            if j == me2:
+                fe2 += 1
+        res = []
+        if fe1 > N3:
+            return me1
+        elif fe2 > N3:
+            return me2
+        else:
+            return -1
