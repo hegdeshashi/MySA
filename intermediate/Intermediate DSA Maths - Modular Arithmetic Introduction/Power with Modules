@@ -1,0 +1,62 @@
+Problem Description
+You are given A, B and C .
+Calculate the value of (A ^ B) % C
+
+
+Problem Constraints
+1 <= A <= 109
+0 <= B <= 105
+1 <= C <= 109
+
+
+Input Format
+Given three integers A, B and C.
+
+
+Output Format
+Return an integer.
+
+
+Example Input
+Input 1:
+A = 2
+B = 3
+C = 3
+Input 2:
+A = 5
+B = 2
+C = 4
+
+
+Example Output
+Output 1:
+2
+Output 2:
+1
+
+
+Example Explanation
+For Input 1:
+(2 ^ 3) % 3 = 8 % 3 = 2
+For Input 2:
+(5 ^ 2) % 4 = 25 % 4 = 1
+============
+
+class Solution:
+    # @param A : integer
+    # @param B : integer
+    # @param C : integer
+    # @return an integer
+    def solve(self, A, B, C):
+        if (B==0):
+            return 1
+        
+        remainder = A % C 
+        ans = remainder
+        power =1
+        while (power < B) :
+            ans =(ans * remainder) % C
+            power +=1
+
+        return (ans % C)    
+
