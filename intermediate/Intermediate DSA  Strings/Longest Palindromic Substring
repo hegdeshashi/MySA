@@ -1,0 +1,69 @@
+Problem Description
+Given a string A of size N, find and return the longest palindromic substring in A.
+
+Substring of string A is A[i...j] where 0 <= i <= j < len(A)
+
+Palindrome string:
+A string which reads the same backwards. More formally, A is palindrome if reverse(A) = A.
+
+Incase of conflict, return the substring which occurs first ( with the least starting index).
+
+
+
+Problem Constraints
+1 <= N <= 6000
+
+
+
+Input Format
+First and only argument is a string A.
+
+
+
+Output Format
+Return a string denoting the longest palindromic substring of string A.
+
+
+
+Example Input
+A = "aaaabaaa"
+
+
+Example Output
+"aaabaaa"
+
+
+Example Explanation
+We can see that longest palindromic substring is of length 7 and the string is "aaabaaa".
+================
+class Solution:
+	# @param A : string
+	# @return a strings
+	def longestPalindrome(self, A):
+        N=len(A)
+       
+
+        def substring(L,R):                          # check for palindrome substring function where we start from mid elemnts
+            temp=""                                    # and push towards left & right until the  range limits
+            while (L>=0 and R<N and A[L]==A[R]):        # or both L &R are not equal
+                L-=1
+                R+=1
+                                                    # WHEN THE CONDITIONS UNSATISFIED WE tracked our L & R
+            for i in range(L+1,R):   # ---->      both L & R have gone 1 element further i.e. why start =L+1 and end = R-1
+                    temp+=A[i]  
+                     
+            return temp
+
+        ans=""
+        for i in range(N):
+           
+            odd_sub=substring(i,i)         # incase  mid element'i'like in  "aaabaaa" i-=1 are equal i+=1
+                                            # exept for mid elemnt left and right are equal
+            even_sub=substring(i,i+1)      # like in case of "abccba" if divide into eqaul parts both are mirror to each other
+           
+            if len(odd_sub)>len(ans):
+                ans=odd_sub
+            if len(even_sub)>len(ans):
+                ans=even_sub
+        return ans                        # whichever palindorme substring has max length it will be stored in ans
+
