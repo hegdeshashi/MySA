@@ -1,0 +1,8 @@
+From top to down:
+Write a program to print all Natural numbers from 1 to N where you have to take N as input from user
+==============================
+N = int(input())
+count = 0
+while (count < N):
+    count += 1
+    print(count,end=" ")   

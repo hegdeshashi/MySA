@@ -1,0 +1,26 @@
+check a given number is Armstrong number or not:
+
+153 : (1 * 1 * 1) + ( 5 * 5 * 5) + (3 * 3 * 3) --> is Armstrong
+
+27: (2 * 2 * 2) + (7 * 7 * 7) -- > not 
+======
+
+N = int(input())
+
+copy_N = N
+sum = 0
+  
+count = 0
+while ( N > 0):
+     count +=1
+     N = N //10
+N = copy_N
+while ( N >0):
+    digit = N % 10
+    sum += (digit * digit * digit)
+    N = N // 10
+    
+if(sum == copy_N):
+    print ("Armstrong")
+else:
+    print("not Armstrong")

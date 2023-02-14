@@ -1,0 +1,18 @@
+inverted pyramid
+
+* * * * *
+ * * * *
+  * * *
+   * *
+    *
+   ===================
+   
+   
+N = int(input())
+for row in range(N):
+    for _ in range(row):
+        print(" ",end="")
+    for _ in range(N -row):
+        print("* ",end="")
+    print()
+    

@@ -1,0 +1,10 @@
+Problem Description
+Write a program to print sum of elements of the input array A of size N.
+
+=========================
+
+    sum = 0
+    A = input_list
+    for i in A:
+        sum += i
+    return(sum)
