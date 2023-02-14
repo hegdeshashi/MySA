@@ -1,8 +1,0 @@
-Problem Description
-Given two numbers A and B. Print the floor of A/B.
-=====================================
-
-A = int(input())
-B = int(input())
-
-print(A//B)
