@@ -44,3 +44,19 @@ Explanation 2:
  No subarray sums up to 0.
  =====================
  
+class Solution:
+    # @param A : list of integers
+    # @return an integer
+    def solve(self, A):
+        res=0
+        pf=0
+        s=dict()
+        for i in range(len(A)):
+            pf+=A[i]
+            if pf==0:
+                res=max(res,i+1)
+            elif pf in s:
+                res=max(res,i-s[pf])
+            else:
+                s[pf]=i
+        return res
