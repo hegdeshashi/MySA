@@ -1,0 +1,38 @@
+Problem Description
+
+
+Construct a class Circle that represents a Circle.
+
+
+The class should support the following functionalities:-
+perimeter() -> returns the perimeter of the circle
+area() -> returns the area of the circle
+
+
+Assume Π (pi) = 3.14 for calculations.
+You may define any properties in the class as you see appropriate.
+
+
+=========
+class Circle:
+    # Define properties here
+    PI = 3.14
+    
+    # Define constructor here
+    def __init__(self, radius):
+        self.radius = radius
+
+
+    def perimeter(self):
+        # Complete the function
+        return 2*self.PI*self.radius
+    
+    
+    def area(self):
+        # Complete the function
+        return self.PI*self.radius*self.radius
+    
+        
+# a = new Circle(3)  // Radius = 3
+# a.perimeter() // 18.84
+# a.area() // 28.26
