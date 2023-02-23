@@ -1,0 +1,31 @@
+Problem Description
+
+Construct a class Rectangle that represents a rectangle.
+The class should support the following functionalities:-
+perimeter() -> returns the perimeter of the rectangle
+area() -> returns the area of the rectangle
+You may define any properties in the class as you see appropriate.
+=========
+
+class Rectangle:
+    # Define properties here
+    def __init__(self, length, breadth):
+        self.length = length
+        self.breadth = breadth
+    
+    # Define constructor here
+
+
+    def perimeter(self):
+        # Complete the function
+        return 2*(self.length+self.breadth)
+    
+    
+    def area(self):
+        # Complete the function
+        return (self.length*self.breadth)
+    
+        
+# Rectangle a = new Rectangle(2, 3)  // Length = 2, Breadth = 3
+# a.perimeter() // Should give 10
+# a.area() // Should give 6
