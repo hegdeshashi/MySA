@@ -38,3 +38,17 @@ First devotee donated 10 coins to beggars ranging from 1 to 2. Final amount in e
 Second devotee donated 20 coins to beggars ranging from 2 to 3. Final amount in each beggars pot after second devotee: [10, 30, 20, 0, 0]
 Third devotee donated 25 coins to beggars ranging from 2 to 5. Final amount in each beggars pot after third devotee: [10, 55, 45, 25, 25]
 ============
+class Solution:
+    # @param A : integer
+    # @param B : list of list of integers
+    # @return a list of integers
+    def solve(self, A, B):
+        beggars = [0]* A
+        for start,end,coins in B:
+            beggars[start-1] += coins
+            if end < A:
+                beggars[end] += coins * -1
+        for idx in range(1,A):
+            beggars[idx] += beggars[idx -1 ]
+        return beggars
+
