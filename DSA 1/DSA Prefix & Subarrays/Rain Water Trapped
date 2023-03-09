@@ -1,0 +1,68 @@
+Problem Description
+Given a vector A of non-negative integers representing an elevation map where the width of each bar is 1, compute how much water it is able to trap after raining.
+
+
+
+Problem Constraints
+1 <= |A| <= 100000
+
+
+
+Input Format
+First and only argument is the vector A
+
+
+
+Output Format
+Return one integer, the answer to the question
+
+
+
+Example Input
+Input 1:
+
+A = [0, 1, 0, 2]
+Input 2:
+
+A = [1, 2]
+
+
+Example Output
+Output 1:
+
+1
+Output 2:
+
+0
+
+
+Example Explanation
+Explanation 1:
+
+1 unit is trapped on top of the 3rd element.
+Explanation 2:
+
+No water is trapped.
+==============
+class Solution:
+	# @param A : tuple of integers
+	# @return an integer
+	def trap(self, A):
+		# find left max array
+        left_max = self.prefix_max(0,len(A),1,A)
+        # find right max array
+        right_max = self.prefix_max(len(A)-1,-1,-1,A)
+        total_rain_drops = 0
+        for i in range(len(A)):
+            min_bar = min(left_max[i],right_max[i])
+            if min_bar > A[i]:
+                total_rain_drops +=  min_bar -  A[i]
+        return total_rain_drops
+
+    def prefix_max(self,start,end,steps,bar):
+        curr_max = 0
+        max_array = [0]*len(bar)
+        for idx in range(start,end,steps):
+            curr_max = max(curr_max, bar[idx])
+            max_array[idx] = curr_max
+        return max_array
