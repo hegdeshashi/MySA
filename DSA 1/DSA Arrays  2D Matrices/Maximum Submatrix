@@ -1,0 +1,90 @@
+Maximum Submatrix
+Problem Description
+Given an matrix A of size NxM, which is row-wise and column-wise sorted. Find a submatrix such that sum of its elements is maximum and return this sum.
+
+
+Problem Constraints
+1 <= N, M <= 103
+-105 <= A[i][j] <= 105
+
+
+Input Format
+First argument A is an matrix of integers.
+
+
+Output Format
+Return an integer value which is maximum submatrix sum
+
+
+Example Input
+Input 1:
+
+A = [[6, 8, 10, 11],
+[10, 11, 12, 15]]
+Input 2:
+
+A = [[-8, 1, 1],
+[-1, 6, 6],
+[7, 10, 10]]
+
+
+Example Output
+Output 1:
+
+83
+Output 2:
+
+38
+
+
+Example Explanation
+Explanation 1:
+
+Since all values in the matrix are positive integers, their sum is taken which is 83.
+Explanation 2:
+
+Max sum is found in submatrix from [1, 0] to [2, 2].
+==================
+class Solution:
+    # @param A : list of list of integers
+     # @return an long
+    def solve(self, A):
+        def prefixSum(a1,b1,a2,b2,arr):
+            sums = 0
+           
+            if a1 != 0 and b1 != 0 :
+                sums=arr[a2][b2] - arr[a1-1][b2] - arr[a2][b1-1] + arr[a1-1][b1-1]
+            elif a1 == 0 and b1 != 0 :
+                sums=arr[a2][b2] - arr[a2][b1-1]
+            elif a1 != 0 and b1 == 0 :
+                sums=arr[a2][b2] - arr[a1-1][b2]
+            else :
+                sums=arr[a2][b2]
+            return sums
+       
+        n = len(A)
+        m = len(A[0])
+        newA=[[0 for i in range(m)] for j in range(n)]
+        #print(newA)
+        for j in range(m) :
+            sums = 0
+            for i in range(n) :
+                sums += A[i][j]
+                newA[i][j] = sums
+        for i in range(n) :
+            sums = 0
+            for j in range(m) :
+                sums += newA[i][j]
+                newA[i][j] = sums
+       
+        max_val=-sys.maxsize
+       
+        #print(newA)
+
+        for i in range(n):
+            for j in range(m):
+                sum_val=prefixSum(i,j,n-1,m-1,newA)
+                max_val=max(max_val,sum_val)
+               
+
+        return max_val
